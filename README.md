@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+به نام او
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## یه تست کوچیک!
 
-## Available Scripts
+سلام.
 
-In the project directory, you can run:
+۴ تا تسک کوچیکه، که احتمالاً نباید کلش بیشتر از یکی دو ساعت وقت بگیره ازتون.
+اگه یکی از تسک‌ها داشت زیاد وقت می‌گرفت، ازش رد بشید و بقیه رو انجام بدید.
 
-### `yarn start`
+پروژه برای استفاده با
+`yarn`
+کانفیگ شده، اگرچه فکر نکنم مشکلی با
+`npm`
+بخورید. اگه
+`yarn`
+ندارید، این دستور رو اجرا کنید:
+`corepack enable`
+(روی ویندوز احتمالاً باید داخل یه پنجره با دسترسی
+administrator
+اجراش کنید.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+استفاده از
+VSCode و prettier
+(چه از طریق اکستنشن، چه اجرای دستورش)
+توصیه می‌شه.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### **یه نکته‌ی خیلی مهم**
 
-### `yarn test`
+لطفاً حتماً حتماً حتماً بعد از انجام هر تسک (یا رد شدن ازش) و قبل از این که تسک بعدی رو شروع کنید، تغییراتتون رو کامیت کنید. مهم نیست که کامیت‌ها تمیز/درست باشن، فقط مهمه که تغییرات هر تسک جدا از بقیه باشه. اگه یه تسکی رو رد کردید و دوباره برگشتید بهش، اشکالی نداره دو تا کامیت جدا از هم باشه، حتی بهتر هم هست!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+بعد از این هم که کارتون تموم شد، یه جایی پوش کنید نتیجه‌ی کارتون رو، و لینکش رو برامون بفرستید.
 
-### `yarn build`
+---
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### تسک اول
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+اصلاح باگ: روی دکمه‌ی «پیغام» که کلیک می‌کنیم، مقدار ورودی باید داخل پیغام نمایش داده بشه، ولی نمی‌شه.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### تسک دوم
 
-### `yarn eject`
+ظاهر صفحه تا جایی که می‌تونید شبیه عکس زیر بشه.
+(به کلیات و جزئیات دقت کنید. هر طور حس می‌کنید بهتر می‌شه و استاندارد‌تر هست درستش کنید.)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](Screenshot.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### تسک سوم
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+با کلیک روی دکمه‌ی «تأیید» دایلوگی که پیاده شده باز بشه.
+(ظاهر دایلوگ رو بی‌خیالش باشید!)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+با تأیید و بسته شدن دایلوگ، نوع و تعداد داخل
+`div#output`
+نمایش داده بشه.
+(دقت کنید که قبل از تأیید دایلوگ، خروجی باید خالی باشه و فقط بعد از تأیید و بسته شدن دایلوگ باید مقادیر داخل کادر خروجی نمایش داده بشن.)
 
-## Learn More
+### تسک چهارم
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+یه کامپوننت به اسم
+`CountEditor`
+ساخته بشه، و این موارد به داخلش منتقل بشن:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- دکمه‌ی «تأیید» باز شدن دایلوگ
+- دایلوگ
+- استیت تعداد
+- استیت باز بودن دایلوگ
+
+دقت کنید که فقط دکمه‌ی «تأیید» و خود دایلوگ منتقل بشه به کامپوننت جدید، و چیز دیگه‌ای (مثل خروجی) منتقل نشه.
+
+همه‌چیز باید مثل قبل کار کنه.
