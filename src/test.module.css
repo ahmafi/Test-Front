@@ -1,0 +1,59 @@
+.container {
+    max-width: 280px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 12px;
+}
+
+.label {
+    margin-bottom: 16px;
+}
+
+.input {
+    padding: 12px 8px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.buttonsWrapper {
+    display: flex;
+    align-self: self-end;
+    margin-bottom: 32px;
+}
+
+.button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.messageBtn {
+    background-color: #4b0082;
+    border: 1px solid #e9bbff;
+    color: white;
+}
+
+.messageBtn:hover {
+    background-color: #37005e;
+}
+
+.submitBtn {
+    background-color: #1e90fe;
+    border: 1px solid #3d329d;
+    color: black;
+    margin-right: 8px;
+}
+
+.submitBtn:hover {
+    background-color: #1675ce;
+}
+
+.output {
+    border-radius: 12px;
+    min-height: 60px;
+}
