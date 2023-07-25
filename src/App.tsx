@@ -1,33 +1,21 @@
 /* eslint-disable */
-import { ChangeEventHandler, useCallback, useState } from "react";
+import { ChangeEventHandler, useCallback, useRef, useState } from "react";
 import "./App.css";
-import Dialog from "./Dialog";
+import CountEditor from "./CountEditor";
 import styles from "./test.module.css";
 
+const INIT_COUNT = 1;
+
 function App() {
+    const countStateRef = useRef(INIT_COUNT);
     const [type, setType] = useState("");
-    const [count, setCount] = useState(1);
-    const [dialogOpen, setDialogOpen] = useState(false);
     const [dialogChanged, setDialogChanged] = useState(false);
     const typeChange = useCallback<ChangeEventHandler<HTMLInputElement>>((e) => {
         setType(e.target.value);
     }, []);
-    const countChange = useCallback<ChangeEventHandler<HTMLInputElement>>((e) => {
-        const numberInput = Number(e.target.value);
-        if (isNaN(numberInput)) return;
-        setCount(numberInput);
-    }, []);
     const showAlert = useCallback(() => {
         alert(`نوع: ${type}`);
     }, [type]);
-    const openDialog = useCallback(() => {
-        setDialogOpen(true);
-        setDialogChanged(false);
-    }, []);
-    const closeDialog = useCallback(() => {
-        setDialogOpen(false);
-        setDialogChanged(true);
-    }, []);
 
     return (
         <div className={styles.container}>
@@ -37,9 +25,12 @@ function App() {
                 <button onClick={showAlert} className={`${styles.button} ${styles.messageBtn}`}>
                     پیغام
                 </button>
-                <button onClick={openDialog} className={`${styles.button} ${styles.submitBtn}`}>
-                    تأیید
-                </button>
+                <CountEditor
+                    ref={countStateRef}
+                    initCount={INIT_COUNT}
+                    type={type}
+                    setDialogChanged={setDialogChanged}
+                />
             </div>
 
             <div
@@ -51,19 +42,10 @@ function App() {
                 {dialogChanged && (
                     <>
                         <div>{type}</div>
-                        <div>{count}</div>
+                        <div>{countStateRef.current}</div>
                     </>
                 )}
             </div>
-
-            <Dialog isOpen={dialogOpen} onClose={closeDialog}>
-                <span>نوع: {type}</span>
-                <br />
-                <span>تعداد:</span>
-                <input type="number" value={count} onChange={countChange} />
-                <br />
-                <button onClick={closeDialog}>تأیید</button>
-            </Dialog>
         </div>
     );
 }
