@@ -8,14 +8,25 @@ function App() {
     const [type, setType] = useState("");
     const [count, setCount] = useState(1);
     const [dialogOpen, setDialogOpen] = useState(false);
+    const [dialogChanged, setDialogChanged] = useState(false);
     const typeChange = useCallback<ChangeEventHandler<HTMLInputElement>>((e) => {
         setType(e.target.value);
+    }, []);
+    const countChange = useCallback<ChangeEventHandler<HTMLInputElement>>((e) => {
+        const numberInput = Number(e.target.value);
+        if (isNaN(numberInput)) return;
+        setCount(numberInput);
     }, []);
     const showAlert = useCallback(() => {
         alert(`نوع: ${type}`);
     }, [type]);
+    const openDialog = useCallback(() => {
+        setDialogOpen(true);
+        setDialogChanged(false);
+    }, []);
     const closeDialog = useCallback(() => {
         setDialogOpen(false);
+        setDialogChanged(true);
     }, []);
 
     return (
@@ -26,7 +37,9 @@ function App() {
                 <button onClick={showAlert} className={`${styles.button} ${styles.messageBtn}`}>
                     پیغام
                 </button>
-                <button className={`${styles.button} ${styles.submitBtn}`}>تأیید</button>
+                <button onClick={openDialog} className={`${styles.button} ${styles.submitBtn}`}>
+                    تأیید
+                </button>
             </div>
 
             <div
@@ -35,13 +48,19 @@ function App() {
                 className={styles.output}
             >
                 خروجی:
+                {dialogChanged && (
+                    <>
+                        <div>{type}</div>
+                        <div>{count}</div>
+                    </>
+                )}
             </div>
 
             <Dialog isOpen={dialogOpen} onClose={closeDialog}>
                 <span>نوع: {type}</span>
                 <br />
                 <span>تعداد:</span>
-                <input type="number" value={count} />
+                <input type="number" value={count} onChange={countChange} />
                 <br />
                 <button onClick={closeDialog}>تأیید</button>
             </Dialog>
