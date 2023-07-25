@@ -12,7 +12,7 @@ function App() {
     }, []);
     const showAlert = useCallback(() => {
         alert(`نوع: ${type}`);
-    }, []);
+    }, [type]);
     const closeDialog = useCallback(() => {
         setDialogOpen(false);
     }, []);
